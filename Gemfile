@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
@@ -46,7 +44,13 @@ gem 'pry-byebug'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+<<<<<<< Updated upstream
 gem 'graphiti', '~> 1.0', git: "https://github.com/wagenet/graphiti.git", branch: "graphiti-rails"
+=======
+gem 'graphiti', git: 'https://github.com/wagenet/graphiti.git', branch: 'graphiti-rails'
+gem 'graphiti-rails', git: 'https://github.com/graphiti-api/graphiti-rails.git', branch: 'master'
+
+>>>>>>> Stashed changes
 gem 'kaminari', '~> 1.0'
 gem 'responders', '~> 2.4'
 gem "rescue_registry", git: "https://github.com/wagenet/rescue_registry.git", branch: "master"

@@ -7,6 +7,10 @@ RSpec.describe "positions#index", type: :request do
     jsonapi_get "/api/v1/positions", params: params
   end
 
+  before do
+    GraphitiErrors.enable!
+  end
+
   describe 'basic fetch' do
     let!(:position1) { create(:position) }
     let!(:position2) { create(:position) }

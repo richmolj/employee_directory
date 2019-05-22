@@ -15,4 +15,8 @@ class PositionResource < ApplicationResource
   before_commit only: [:create, :destroy] do |position|
     Position.reorder!(position.employee_id)
   end
+
+  def resolve(scope)
+    raise FooError
+  end
 end

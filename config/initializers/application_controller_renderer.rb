@@ -6,3 +6,5 @@
 #     https: false
 #   )
 # end
+
+class FooError < StandardError;end
