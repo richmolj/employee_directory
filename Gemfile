@@ -44,17 +44,10 @@ gem 'pry-byebug'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-<<<<<<< Updated upstream
-gem 'graphiti', '~> 1.0', git: "https://github.com/wagenet/graphiti.git", branch: "graphiti-rails"
-=======
 gem 'graphiti', git: 'https://github.com/wagenet/graphiti.git', branch: 'graphiti-rails'
 gem 'graphiti-rails', git: 'https://github.com/graphiti-api/graphiti-rails.git', branch: 'master'
-
->>>>>>> Stashed changes
 gem 'kaminari', '~> 1.0'
 gem 'responders', '~> 2.4'
-gem "rescue_registry", git: "https://github.com/wagenet/rescue_registry.git", branch: "master"
-gem "graphiti-rails", git: "https://github.com/wagenet/graphiti-rails.git", branch: "railtie"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.2'

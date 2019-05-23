@@ -31,6 +31,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include GraphitiSpecHelpers::RSpec
   config.include GraphitiSpecHelpers::Sugar
+  config.include RescueRegistry::RailsTestHelpers, type: :request
 
   config.before :each do
     GraphitiErrors.disable!
