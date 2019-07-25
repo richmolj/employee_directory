@@ -20,6 +20,19 @@ RSpec.describe EmployeeResource, type: :resource do
         expect(instance.save).to eq(true)
       }.to change { Employee.count }.by(1)
     end
+
+    context 'when assigning a faux user' do
+      before do
+        payload[:data][:relationships] = {
+          user: { data: { id: 123, type: 'users' } }
+        }
+      end
+
+      it 'works' do
+        instance.save
+        expect(Employee.last.user_id).to eq(123)
+      end
+    end
   end
 
   describe 'updating' do

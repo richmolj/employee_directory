@@ -10,4 +10,11 @@ class Employee < ApplicationRecord
   has_one :current_position,
     -> { current(true) },
     class_name: 'Position'
+
+  attr_reader :user
+
+  def user=(user)
+    self.user_id = user.id
+    @user = user
+  end
 end

@@ -347,6 +347,11 @@
           "type": "has_one",
           "description": null,
           "resource": "PositionResource"
+        },
+        "user": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "UserResource"
         }
       }
     },
@@ -1055,6 +1060,41 @@
           "description": null,
           "resource": "NoteResource"
         }
+      }
+    },
+    {
+      "name": "UserResource",
+      "type": "users",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ],
+          "single": true
+        }
+      },
+      "relationships": {
       }
     }
   ],
