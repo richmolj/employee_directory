@@ -1,3 +1,9 @@
+PATH
+  remote: ../graphiti_errors
+  specs:
+    graphiti_errors (1.1.0)
+      jsonapi-serializable (~> 0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,6 +53,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
+    coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     database_cleaner (1.7.0)
@@ -93,8 +100,6 @@ GEM
       graphiti (~> 1.2)
       rails (>= 5.0)
       rescue_registry (~> 0.2.1)
-    graphiti_errors (1.1.0)
-      jsonapi-serializable (~> 0.1)
     graphiti_spec_helpers (1.0.1)
       graphiti (>= 1.0.alpha.1)
       rspec (~> 3.0)
@@ -135,6 +140,12 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.7.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
     puma (3.12.1)
     rack (2.0.7)
     rack-cors (1.0.3)
@@ -228,9 +239,12 @@ DEPENDENCIES
   faker (~> 1.7)
   graphiti (~> 1.2)
   graphiti-rails (~> 0.2)
+  graphiti_errors!
   graphiti_spec_helpers
   kaminari (~> 1.0)
   listen (>= 3.0.5, < 3.2)
+  pry
+  pry-byebug
   puma (~> 3.11)
   rack-cors
   rails (~> 5.2.1)
@@ -242,8 +256,5 @@ DEPENDENCIES
   tzinfo-data
   vandal_ui (~> 0.4)
 
-RUBY VERSION
-   ruby 2.4.2p198
-
 BUNDLED WITH
-   1.16.6
+   1.17.3

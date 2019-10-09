@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace, defaults: { format: :jsonapi } do
+    resources :addresses
+    resources :companies
+    resources :contacts
     mount VandalUi::Engine, at: '/vandal'
 
     resources :milestones

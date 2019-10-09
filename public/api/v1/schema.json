@@ -1,6 +1,63 @@
 {
   "resources": [
     {
+      "name": "AddressResource",
+      "type": "addresses",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "street": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "street": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "street": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+      }
+    },
+    {
       "name": "BugResource",
       "type": "bugs",
       "description": null,
@@ -94,6 +151,130 @@
         "BugResource",
         "EpicResource"
       ]
+    },
+    {
+      "name": "CompanyResource",
+      "type": "companies",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "name": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "name": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+        "addresses": {
+          "type": "has_many",
+          "description": null,
+          "resource": "AddressResource"
+        }
+      }
+    },
+    {
+      "name": "ContactResource",
+      "type": "contacts",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "name": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "name": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+        "company": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "CompanyResource"
+        }
+      }
     },
     {
       "name": "DepartmentResource",
@@ -1059,6 +1240,63 @@
     }
   ],
   "endpoints": {
+    "/api/v1/addresses": {
+      "actions": {
+        "index": {
+          "resource": "AddressResource"
+        },
+        "show": {
+          "resource": "AddressResource"
+        },
+        "create": {
+          "resource": "AddressResource"
+        },
+        "update": {
+          "resource": "AddressResource"
+        },
+        "destroy": {
+          "resource": "AddressResource"
+        }
+      }
+    },
+    "/api/v1/companies": {
+      "actions": {
+        "index": {
+          "resource": "CompanyResource"
+        },
+        "show": {
+          "resource": "CompanyResource"
+        },
+        "create": {
+          "resource": "CompanyResource"
+        },
+        "update": {
+          "resource": "CompanyResource"
+        },
+        "destroy": {
+          "resource": "CompanyResource"
+        }
+      }
+    },
+    "/api/v1/contacts": {
+      "actions": {
+        "index": {
+          "resource": "ContactResource"
+        },
+        "show": {
+          "resource": "ContactResource"
+        },
+        "create": {
+          "resource": "ContactResource"
+        },
+        "update": {
+          "resource": "ContactResource"
+        },
+        "destroy": {
+          "resource": "ContactResource"
+        }
+      }
+    },
     "/api/v1/departments": {
       "actions": {
         "index": {

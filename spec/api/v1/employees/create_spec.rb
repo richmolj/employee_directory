@@ -11,19 +11,48 @@ RSpec.describe "employees#create", type: :request do
         data: {
           type: 'employees',
           attributes: {
-            # ... your attrs here
+            first_name: 'adsf',
+            last_name: 'asdf'
+          },
+          relationships: {
+            positions: {
+              data: [
+                {
+                  type: 'positions',
+                  :'temp-id' => 'a',
+                  method: 'create'
+                }
+              ]
+            }
           }
-        }
+        },
+        included: [
+          {
+            type: 'positions',
+            :'temp-id' => 'a',
+            attributes: { title: 'adf' },
+            relationships: {
+              department: {
+                data: {
+                  type: 'departments',
+                  :'temp-id' => 'b',
+                  method: 'create'
+                }
+              }
+            }
+          },
+          {
+            type: 'departments',
+            :'temp-id' => 'b',
+            attributes: {}
+          }
+        ]
       }
     end
 
     it 'works' do
-      expect(EmployeeResource).to receive(:build).and_call_original
-      expect {
-        make_request
-      }.to change { Employee.count }.by(1)
-      employee = Employee.last
-      expect(response.status).to eq(201)
+      make_request
+      binding.pry
     end
   end
 end
