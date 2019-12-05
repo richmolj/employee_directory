@@ -8,7 +8,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 gem 'pg'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'jsonapi_suite', '~> 0.5'
 gem 'jsonapi-rails', '~> 0.1'
 gem 'kaminari', '~> 0.17'
