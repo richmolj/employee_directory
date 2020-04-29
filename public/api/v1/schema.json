@@ -1,6 +1,68 @@
 {
   "resources": [
     {
+      "name": "AssetTypeResource",
+      "type": "asset_types",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "reference_code": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "reference_code": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "reference_code": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+        "wanteds": {
+          "type": "has_many",
+          "description": null,
+          "resource": "LeadWantedResource"
+        }
+      }
+    },
+    {
       "name": "BugResource",
       "type": "bugs",
       "description": null,
@@ -565,6 +627,112 @@
       ]
     },
     {
+      "name": "LeadResource",
+      "type": "leads",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        },
+        "channel": {
+          "type": "string",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        },
+        "channel": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        },
+        "channel": {
+          "type": "string",
+          "operators": [
+            "eq",
+            "not_eq",
+            "eql",
+            "not_eql",
+            "prefix",
+            "not_prefix",
+            "suffix",
+            "not_suffix",
+            "match",
+            "not_match"
+          ]
+        }
+      },
+      "relationships": {
+        "wanteds": {
+          "type": "has_many",
+          "description": null,
+          "resource": "LeadWantedResource"
+        }
+      }
+    },
+    {
+      "name": "LeadWantedResource",
+      "type": "lead_wanteds",
+      "description": null,
+      "attributes": {
+        "id": {
+          "type": "integer_id",
+          "readable": true,
+          "writable": true,
+          "description": null
+        }
+      },
+      "extra_attributes": {
+      },
+      "sorts": {
+        "id": {
+        }
+      },
+      "filters": {
+        "id": {
+          "type": "integer_id",
+          "operators": [
+            "eq",
+            "not_eq",
+            "gt",
+            "gte",
+            "lt",
+            "lte"
+          ]
+        }
+      },
+      "relationships": {
+        "lead": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "LeadResource"
+        },
+        "asset_type": {
+          "type": "belongs_to",
+          "description": null,
+          "resource": "AssetTypeResource"
+        }
+      }
+    },
+    {
       "name": "MilestoneResource",
       "type": "milestones",
       "description": null,
@@ -1059,6 +1227,25 @@
     }
   ],
   "endpoints": {
+    "/api/v1/asset_types": {
+      "actions": {
+        "index": {
+          "resource": "AssetTypeResource"
+        },
+        "show": {
+          "resource": "AssetTypeResource"
+        },
+        "create": {
+          "resource": "AssetTypeResource"
+        },
+        "update": {
+          "resource": "AssetTypeResource"
+        },
+        "destroy": {
+          "resource": "AssetTypeResource"
+        }
+      }
+    },
     "/api/v1/departments": {
       "actions": {
         "index": {
@@ -1094,6 +1281,44 @@
         },
         "destroy": {
           "resource": "EmployeeResource"
+        }
+      }
+    },
+    "/api/v1/leads": {
+      "actions": {
+        "index": {
+          "resource": "LeadResource"
+        },
+        "show": {
+          "resource": "LeadResource"
+        },
+        "create": {
+          "resource": "LeadResource"
+        },
+        "update": {
+          "resource": "LeadResource"
+        },
+        "destroy": {
+          "resource": "LeadResource"
+        }
+      }
+    },
+    "/api/v1/lead_wanteds": {
+      "actions": {
+        "index": {
+          "resource": "LeadWantedResource"
+        },
+        "show": {
+          "resource": "LeadWantedResource"
+        },
+        "create": {
+          "resource": "LeadWantedResource"
+        },
+        "update": {
+          "resource": "LeadWantedResource"
+        },
+        "destroy": {
+          "resource": "LeadWantedResource"
         }
       }
     },
