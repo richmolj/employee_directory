@@ -11,7 +11,7 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'jsonapi_suite', '~> 0.5'
 gem 'jsonapi-rails', '~> 0.1'
-gem 'kaminari', '~> 0.17'
+gem 'kaminari', '~> 1.2'
 
 group :development, :test do
   gem 'pry'
