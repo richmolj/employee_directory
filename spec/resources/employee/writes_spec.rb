@@ -51,6 +51,18 @@ RSpec.describe EmployeeResource, type: :resource do
        .and change { employee.last_name }.to('updated lastname')
        .and change { employee.age }.to(70)
     end
+
+    describe 'when record not found' do
+      before do
+        employee.destroy
+      end
+
+      it 'raises error' do
+        expect {
+          instance.update_attributes
+        }.to raise_error(Graphiti::Errors::RecordNotFound)
+      end
+    end
   end
 
   describe 'destroying' do
