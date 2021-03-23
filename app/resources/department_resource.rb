@@ -1,4 +1,5 @@
 class DepartmentResource < ApplicationResource
+  attribute :id, :integer_id, writable: false
   attribute :name, :string
 
   has_many :positions

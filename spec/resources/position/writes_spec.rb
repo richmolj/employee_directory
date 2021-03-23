@@ -47,6 +47,7 @@ RSpec.describe PositionResource, type: :resource do
 
   describe 'updating' do
     let!(:position) { create(:position, active: false) }
+    let!(:department) { create(:department) }
 
     let(:payload) do
       {
@@ -56,8 +57,21 @@ RSpec.describe PositionResource, type: :resource do
           attributes: {
             title: 'changed!',
             active: true
+          },
+          relationships: {
+            department: {
+              data: {
+                id: department.id.to_s,
+                type: "departments",
+                method: "update"
+              }
+            }
           }
-        }
+        },
+        included: [{
+          type: "departments",
+          id: department.id.to_s
+        }]
       }
     end
 
@@ -66,11 +80,9 @@ RSpec.describe PositionResource, type: :resource do
     end
 
     it 'works' do
-      expect {
-        expect(instance.update_attributes).to eq(true)
-      }.to change { position.reload.updated_at }
-       .and change { position.title }.to('changed!')
-       .and change { position.active }.to(true)
+      expect(instance.update_attributes).to eq(true)
+      p = Position.last
+      expect(p.department_id).to eq(department.id)
     end
   end
 

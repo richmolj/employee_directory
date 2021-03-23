@@ -3,6 +3,7 @@
     {
       "name": "BugResource",
       "type": "bugs",
+      "graphql_entrypoint": "bugs",
       "description": null,
       "attributes": {
         "id": {
@@ -88,22 +89,22 @@
           "resource": "TeamResource"
         }
       },
-      "polymorphic": true,
-      "children": [
-        "FeatureResource",
-        "BugResource",
-        "EpicResource"
-      ]
+      "stats": {
+        "total": [
+          "count"
+        ]
+      }
     },
     {
       "name": "DepartmentResource",
       "type": "departments",
+      "graphql_entrypoint": "departments",
       "description": null,
       "attributes": {
         "id": {
           "type": "integer_id",
           "readable": true,
-          "writable": true,
+          "writable": false,
           "description": null
         },
         "name": {
@@ -165,11 +166,17 @@
           "description": null,
           "resource": "NoteResource"
         }
+      },
+      "stats": {
+        "total": [
+          "count"
+        ]
       }
     },
     {
       "name": "EmployeeResource",
       "type": "employees",
+      "graphql_entrypoint": "employees",
       "description": null,
       "attributes": {
         "id": {
@@ -348,11 +355,17 @@
           "description": null,
           "resource": "PositionResource"
         }
+      },
+      "stats": {
+        "total": [
+          "count"
+        ]
       }
     },
     {
       "name": "EpicResource",
       "type": "epics",
+      "graphql_entrypoint": "epics",
       "description": null,
       "attributes": {
         "id": {
@@ -443,16 +456,16 @@
           "resource": "MilestoneResource"
         }
       },
-      "polymorphic": true,
-      "children": [
-        "FeatureResource",
-        "BugResource",
-        "EpicResource"
-      ]
+      "stats": {
+        "total": [
+          "count"
+        ]
+      }
     },
     {
       "name": "FeatureResource",
       "type": "features",
+      "graphql_entrypoint": "features",
       "description": null,
       "attributes": {
         "id": {
@@ -557,16 +570,16 @@
           "resource": "TeamResource"
         }
       },
-      "polymorphic": true,
-      "children": [
-        "FeatureResource",
-        "BugResource",
-        "EpicResource"
-      ]
+      "stats": {
+        "total": [
+          "count"
+        ]
+      }
     },
     {
       "name": "MilestoneResource",
       "type": "milestones",
+      "graphql_entrypoint": "milestones",
       "description": null,
       "attributes": {
         "id": {
@@ -635,11 +648,17 @@
           "description": null,
           "resource": "EpicResource"
         }
+      },
+      "stats": {
+        "total": [
+          "count"
+        ]
       }
     },
     {
       "name": "NoteResource",
       "type": "notes",
+      "graphql_entrypoint": "notes",
       "description": null,
       "attributes": {
         "id": {
@@ -730,13 +749,20 @@
             "EmployeeResource",
             "TeamResource",
             "DepartmentResource"
-          ]
+          ],
+          "parent_resource": "NoteResource"
         }
+      },
+      "stats": {
+        "total": [
+          "count"
+        ]
       }
     },
     {
       "name": "PositionResource",
       "type": "positions",
+      "graphql_entrypoint": "positions",
       "description": null,
       "attributes": {
         "id": {
@@ -861,11 +887,17 @@
           "description": null,
           "resource": "DepartmentResource"
         }
+      },
+      "stats": {
+        "total": [
+          "count"
+        ]
       }
     },
     {
       "name": "TaskResource",
       "type": "tasks",
+      "graphql_entrypoint": "tasks",
       "description": null,
       "attributes": {
         "id": {
@@ -951,6 +983,11 @@
           "resource": "TeamResource"
         }
       },
+      "stats": {
+        "total": [
+          "count"
+        ]
+      },
       "polymorphic": true,
       "children": [
         "FeatureResource",
@@ -961,6 +998,7 @@
     {
       "name": "TeamResource",
       "type": "teams",
+      "graphql_entrypoint": "teams",
       "description": null,
       "attributes": {
         "id": {
@@ -1055,6 +1093,11 @@
           "description": null,
           "resource": "NoteResource"
         }
+      },
+      "stats": {
+        "total": [
+          "count"
+        ]
       }
     }
   ],
